@@ -37,7 +37,7 @@ export default function Kakaomap() {
           );
 
           // 마커를 생성합니다
-          const marker = new window.kakao.maps.Marker({
+          new window.kakao.maps.Marker({
             position: markerPosition,
           });
         }

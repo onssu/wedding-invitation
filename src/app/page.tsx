@@ -3,13 +3,21 @@
 import Link from "next/link";
 
 export default function Home() {
+  const posts = [
+    { seq: 1, title: "첫 번째 글" },
+    { seq: 2, title: "두 번째 글" },
+  ];
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Link href="/upload">등록</Link>
-        <Link href="/list">리스트</Link>
-        <Link href="/example">예시</Link>
-      </main>
-    </div>
+    <main className="flex flex-col items-center max-w-[100vw] w-[44rem] p-16">
+      {posts.map((post) => (
+        <li key={post.seq} className="">
+          <Link href={`/view/${post.seq}`}>{post.title}</Link>
+        </li>
+      ))}
+      <hr />
+      <Link href="/upload">등록</Link>
+      <Link href="/example">예시</Link>
+    </main>
   );
 }

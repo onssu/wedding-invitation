@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Parisienne&display=swap");
 
+@import "./styles/common.css";
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -123,6 +125,7 @@
   }
 }
 
+/* ******************************** 전역 ******************************** */
 @font-face {
   font-family: "GowunDodum-Regular";
   src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff")
@@ -147,48 +150,6 @@ body {
   min-height: 100%;
 }
 
-.fade-in {
-  animation: fadein 0.8s;
-  -moz-animation: fadein 0.8s; /* Firefox */
-  -webkit-animation: fadein 0.8s; /* Safari and Chrome */
-  -o-animation: fadein 0.8s; /* Opera */
-}
-
-@keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@-moz-keyframes fadein {
-  /* Firefox */
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes fadein {
-  /* Safari and Chrome */
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@-o-keyframes fadein {
-  /* Opera */
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 /* ******************************** 미디어 쿼리 ******************************** */
 /* Landscape mode (가로형 디바이스)
 @media only screen and (orientation: landscape) {
