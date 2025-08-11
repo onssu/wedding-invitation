@@ -5,7 +5,7 @@ import Gallery from "@/(components)/ui/gallery";
 export default function TemplateA({ seq, data }: { seq: string }) {
   return (
     <main className="flex flex-col items-center bg-[#333]">
-      <div className="overflow-hidden relative max-w-[100vw] w-[44rem] bg-[#fff]">
+      <div className="overflow-hidden relative max-w-[100vw] w-[44rem] min-h-screen bg-[#fff]">
         <section className="w-full relative">
           <Image
             src="https://newsimg-hams.hankookilbo.com/2022/03/31/065f576b-0ff9-411d-8edb-edc139721de0.jpg"
