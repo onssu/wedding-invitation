@@ -22,12 +22,14 @@ export const generateMetadata = ({
 };
 
 export default function DetailPage({ seq }: { seq: string }) {
-  const data = {
+  const data: FormDataType = {
     bride: "신부",
     groom: "신랑",
     date: "2025.08.06",
     time: "11:00",
     location: "결혼식 장소",
+    lat: 33.450701,
+    lng: 126.570667,
     message:
       "저희 두 사람,\n서로의 인연을 소중히 여기며\n오랜 사랑 끝에 결실을 맺으려 합니다.\n함께하는 자리에 오셔서 따뜻한 축복으로\n저희의 시작을 빛내주세요.",
     brideFater: "신부부",
@@ -48,6 +50,7 @@ export default function DetailPage({ seq }: { seq: string }) {
       "https://newsimg-hams.hankookilbo.com/2022/03/31/065f576b-0ff9-411d-8edb-edc139721de0.jpg",
       "https://newsimg-hams.hankookilbo.com/2022/03/31/065f576b-0ff9-411d-8edb-edc139721de0.jpg",
     ],
+    info: "버스\n 103번, 104번\n <li>지하철 2호선, 9호선</li>",
   };
 
   return (

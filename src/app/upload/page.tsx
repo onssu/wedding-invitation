@@ -3,22 +3,14 @@
 import { useForm } from "react-hook-form";
 import { Input } from "@/(components)/ui/input";
 
-interface FormValues {
-  bride: string;
-  groom: string;
-  date: string;
-  time: string;
-  location: string;
-}
-
 export default function UploadPage() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormValues>();
+  } = useForm<FormDataType>();
 
-  const onSubmit = (data: FormValues) => {
+  const onSubmit = (data: FormDataType) => {
     console.log(data);
   };
 

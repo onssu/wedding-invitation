@@ -2,7 +2,13 @@ import Image from "next/image";
 import Kakaomap from "@/(components)/ui/kakaomap";
 import Gallery from "@/(components)/ui/gallery";
 
-export default function TemplateA({ seq, data }: { seq: string }) {
+export default function TemplateA({
+  seq,
+  data,
+}: {
+  seq: string;
+  data: FormDataType;
+}) {
   return (
     <main className="flex flex-col items-center bg-[#333]">
       <div className="overflow-hidden relative max-w-[100vw] w-[44rem] min-h-screen bg-[#fff]">
@@ -91,9 +97,10 @@ export default function TemplateA({ seq, data }: { seq: string }) {
         </section>
         <section>
           <div className="text-center py-8 mt-8">위치</div>
-          <Kakaomap />
+          <Kakaomap lat={data.lat} lng={data.lng} />
           <div className="p-16">
             <div className="text-center py-8 mt-8">오시는 길</div>
+            {data.info}
             <div>버스</div>
             <div>⦁</div>
             <div>지하철</div>

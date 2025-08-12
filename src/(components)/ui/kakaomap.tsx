@@ -8,7 +8,7 @@ declare global {
   }
 }
 
-export default function Kakaomap() {
+export default function Kakaomap({ lat, lng }: { lat: number; lng: number }) {
   const mapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -25,16 +25,13 @@ export default function Kakaomap() {
       window.kakao.maps.load(() => {
         if (mapRef.current) {
           const options = {
-            center: new window.kakao.maps.LatLng(33.450701, 126.570667),
+            center: new window.kakao.maps.LatLng(lat, lng),
             level: 3,
           };
           new window.kakao.maps.Map(mapRef.current, options);
 
           // 마커가 표시될 위치입니다
-          const markerPosition = new window.kakao.maps.LatLng(
-            33.450701,
-            126.570667
-          );
+          const markerPosition = new window.kakao.maps.LatLng(lat, lng);
 
           // 마커를 생성합니다
           new window.kakao.maps.Marker({
