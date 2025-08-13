@@ -13,5 +13,5 @@ declare interface FormDataType {
   brideMother: string;
   groomMother: string;
   galleryItems: string[];
-  info?: string;
+  info: string;
 }

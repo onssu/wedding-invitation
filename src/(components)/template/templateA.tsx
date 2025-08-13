@@ -59,28 +59,51 @@ export default function TemplateA({
           <div className="text-center py-8">
             <div>
               신랑측 연락처 <a></a>
-              <a href="tel:010-1234-5678">
-                <Image
-                  src="/assets/icons/phone.svg"
-                  alt="전화"
-                  className="w-6 h-6 inline-block"
-                  width={30}
-                  height={30}
-                />
-              </a>
-              <a href="sms:010-1234-5678">
-                <Image
-                  src="/icons/message.svg"
-                  alt="문자"
-                  className="w-6 h-6 inline-block"
-                  width={30}
-                  height={30}
-                />
-              </a>
-              <div>신랑 전화 문자</div>
+              <div>
+                신랑
+                <a href="tel:010">
+                  <Image
+                    src="/assets/icons/phone.svg"
+                    alt="전화"
+                    className="w-6 h-6 inline-block"
+                    width={30}
+                    height={30}
+                  />
+                </a>
+                <a href="sms:010">
+                  <Image
+                    src="/icons/message.svg"
+                    alt="문자"
+                    className="w-6 h-6 inline-block"
+                    width={30}
+                    height={30}
+                  />
+                </a>
+              </div>
             </div>
             <div>
-              신부측 연락처 <a></a>
+              신부측 연락처
+              <div>
+                신부
+                <a href="tel:010">
+                  <Image
+                    src="/assets/icons/phone.svg"
+                    alt="전화"
+                    className="w-6 h-6 inline-block"
+                    width={30}
+                    height={30}
+                  />
+                </a>
+                <a href="sms:010">
+                  <Image
+                    src="/icons/message.svg"
+                    alt="문자"
+                    className="w-6 h-6 inline-block"
+                    width={30}
+                    height={30}
+                  />
+                </a>
+              </div>
             </div>
           </div>
         </section>
@@ -100,17 +123,12 @@ export default function TemplateA({
           <Kakaomap lat={data.lat} lng={data.lng} />
           <div className="p-16">
             <div className="text-center py-8 mt-8">오시는 길</div>
-            {data.info}
-            <div>버스</div>
-            <div>⦁</div>
-            <div>지하철</div>
-            <div>⦁</div>
-            <div>주차</div>
-            <div>
-              안내데스크에서 주차권을 수령하실 수 있습니다.
-              <br />
-              2시간 무료 주차 가능
-            </div>
+            <div
+              className="whitespace-pre-line"
+              dangerouslySetInnerHTML={{
+                __html: data.info.replace(/\n/g, "<br/>"),
+              }}
+            />
           </div>
         </section>
       </div>
