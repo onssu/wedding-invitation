@@ -4,7 +4,7 @@ import { Editor } from "@tinymce/tinymce-react";
 export default function TinyEditor() {
   return (
     <Editor
-      apiKey="57oyipv7sh1nmoyii6rbhtasx9uzfr2vw35i15jdoav0z5nz"
+      apiKey={process.env.TINY_EDITOR_KEY}
       init={{
         plugins: [
           // Core editing features
