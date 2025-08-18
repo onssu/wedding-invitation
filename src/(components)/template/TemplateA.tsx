@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Kakaomap from "@/(components)/ui/kakaomap";
-import Gallery from "@/(components)/ui/gallery";
+import Kakaomap from "@/(components)/ui/Kakaomap";
+import Gallery from "@/(components)/ui/Gallery";
 
 export default function TemplateA({
   seq,
