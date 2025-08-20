@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Kakaomap from "@/(components)/ui/kakaomap";
-import Gallery from "@/(components)/ui/gallery";
+import Kakaomap from "@/(components)/ui/Kakaomap";
+import Gallery from "@/(components)/ui/Gallery";
 
 export default function ExamplePage() {
   const data = {
@@ -34,7 +34,7 @@ export default function ExamplePage() {
 
   return (
     <main className="flex flex-col items-center bg-[#333]">
-      <div className="overflow-hidden relative max-w-[100vw] w-[44rem] min-h-screen bg-[#fff]">
+      <div className="overflow-hidden relative max-w-[100vw] w-[30rem] min-h-screen bg-[#fff]">
         <section className="w-full relative">
           <Image
             src="https://newsimg-hams.hankookilbo.com/2022/03/31/065f576b-0ff9-411d-8edb-edc139721de0.jpg"

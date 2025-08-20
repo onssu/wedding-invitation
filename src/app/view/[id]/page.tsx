@@ -1,4 +1,4 @@
-import TemplateA from "@/(components)/template/templateA";
+import TemplateA from "@/(components)/template/TemplateA";
 import { Metadata } from "next";
 
 export const generateMetadata = ({

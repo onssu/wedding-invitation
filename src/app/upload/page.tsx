@@ -1,7 +1,8 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { Input } from "@/(components)/ui/input";
+import { Input } from "@/(components)/ui/Input";
+import TinyEditor from "@/(components)/ui/TinyEditor";
 
 export default function UploadPage() {
   const {
@@ -17,7 +18,7 @@ export default function UploadPage() {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <main className="flex flex-col items-center bg-[#333] gap-6">
-        <div className="overflow-hidden relative max-w-[100vw] w-[44rem] min-h-screen bg-[#fff] px-6">
+        <div className="overflow-hidden relative max-w-[100vw] w-[30rem] min-h-screen bg-[#fff] px-6">
           <div>
             <label className="block mb-1 font-semibold">신부 이름</label>
             <Input
@@ -65,6 +66,9 @@ export default function UploadPage() {
             {errors.location && (
               <span className="text-red-500 text-xs">장소를 입력하세요.</span>
             )}
+          </div>
+          <div>
+            <TinyEditor />
           </div>
           <button
             type="submit"

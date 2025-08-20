@@ -10,8 +10,8 @@ export default function TemplateA({
   data: FormDataType;
 }) {
   return (
-    <main className="flex flex-col items-center bg-[#333]">
-      <div className="overflow-hidden relative max-w-[100vw] w-[44rem] min-h-screen bg-[#fff]">
+    <main className="flex flex-col items-center">
+      <div className="overflow-hidden relative max-w-[100vw] w-[30rem] min-h-screen bg-[#fff]">
         <section className="w-full relative">
           <Image
             src="https://newsimg-hams.hankookilbo.com/2022/03/31/065f576b-0ff9-411d-8edb-edc139721de0.jpg"
@@ -46,12 +46,10 @@ export default function TemplateA({
           <div className="w-[60%] my-8 border-t border-[#bfa075] m-auto" />
           <div className="text-center pt-16">
             <p>
-              신랑부 신랑모{" "}
-              <span className="opacity-60 text-[1.4rem]">의 아들</span> 신랑
+              신랑부 신랑모 <span className="opacity-60">의 아들</span> 신랑
             </p>
             <p>
-              신부부 신부모{" "}
-              <span className="opacity-60 text-[1.4rem]">의 딸</span> 신부
+              신부부 신부모 <span className="opacity-60">의 딸</span> 신부
             </p>
           </div>
         </section>

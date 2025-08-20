@@ -9,13 +9,14 @@ export default function Home() {
   ];
 
   return (
-    <main className="flex flex-col items-center max-w-[100vw] w-[44rem] min-h-screen p-16 m-[auto]">
+    <main className="flex flex-col items-center">
       {posts.map((post) => (
         <li key={post.seq} className="">
           <Link href={`/view/${post.seq}`}>{post.title}</Link>
         </li>
       ))}
       <hr />
+      <Link href="/signin">로그인</Link>
       <Link href="/upload">등록</Link>
       <Link href="/example">예시</Link>
     </main>

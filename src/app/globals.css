@@ -135,14 +135,14 @@
 }
 
 html {
-  font-size: clamp(5px, 2.27vw, 10px) !important;
+  /* font-size: clamp(5px, 2.27vw, 10px) !important; */
 }
 
 html,
 body {
   font-family: "GowunDodum-Regular", sans-serif;
-  font-size: 1.6rem;
-  line-height: 3.2rem;
+  /* font-size: 1.6rem;
+  line-height: 3.2rem; */
 }
 
 body {
