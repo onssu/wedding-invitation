@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 
-export default function LoginPage() {
+export default function SigninPage() {
   const router = useRouter();
 
   const onsubmit = (e: React.FormEvent) => {
@@ -12,9 +12,9 @@ export default function LoginPage() {
   };
 
   return (
-    <main className="flex flex-col items-center bg-[#333]">
-      <div className="overflow-hidden relative max-w-[100vw] w-[30rem] min-h-screen bg-[#fff]">
-        로그인
+    <main>
+      <div className="flex flex-col items-center justify-center h-screen">
+        <h3 className="text-center">모바일 청첩장</h3>
         <form className="flex flex-col items-center p-4" onSubmit={onsubmit}>
           <input
             type="text"

@@ -17,7 +17,7 @@ export default function Home() {
       ))}
       <hr />
       <Link href="/signin">로그인</Link>
-      <Link href="/upload">등록</Link>
+      <Link href="/detail">등록</Link>
       <Link href="/example">예시</Link>
     </main>
   );

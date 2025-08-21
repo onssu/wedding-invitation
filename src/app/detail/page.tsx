@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { Input } from "@/(components)/ui/Input";
 import TinyEditor from "@/(components)/ui/TinyEditor";
 
-export default function UploadPage() {
+export default function DetailPage() {
   const {
     register,
     handleSubmit,
