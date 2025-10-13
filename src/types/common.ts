@@ -8,6 +8,11 @@ declare interface FormDataType {
   lat: number;
   lng: number;
   message: string;
+  hideParents: boolean;
+  hideBrideFater: boolean;
+  hideBrideMother: boolean;
+  hideGroomFater: boolean;
+  hideGroomMother: boolean;
   brideFater: string;
   groomFater: string;
   brideMother: string;

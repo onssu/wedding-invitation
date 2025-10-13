@@ -9,6 +9,8 @@ export default function DetailPage() {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
+    watch,
   } = useForm<FormDataType>();
 
   const onSubmit = (data: FormDataType) => {
@@ -68,8 +70,122 @@ export default function DetailPage() {
             )}
           </div>
           <div>
-            <TinyEditor />
+            <label className="block mb-1 font-semibold">위도(lat)</label>
+            <Input
+              type="number"
+              step="any"
+              {...register("lat", { required: true })}
+              placeholder="위도"
+            />
+            {errors.lat && (
+              <span className="text-red-500 text-xs">위도를 입력하세요.</span>
+            )}
           </div>
+          <div>
+            <label className="block mb-1 font-semibold">경도(lng)</label>
+            <Input
+              type="number"
+              step="any"
+              {...register("lng", { required: true })}
+              placeholder="경도"
+            />
+            {errors.lng && (
+              <span className="text-red-500 text-xs">경도를 입력하세요.</span>
+            )}
+          </div>
+          <div>
+            <label className="block mb-1 font-semibold">메시지</label>
+            <Input
+              {...register("message", { required: true })}
+              placeholder="메시지"
+            />
+            {errors.message && (
+              <span className="text-red-500 text-xs">메시지를 입력하세요.</span>
+            )}
+          </div>
+          <div className="flex flex-col gap-2 mt-4">
+            <div className="flex items-center gap-2">
+              <input
+                type="checkbox"
+                {...register("hideParents")}
+                id="hideParents"
+              />
+              <label htmlFor="hideParents" className="font-semibold">
+                부모님 정보 전체 가리기
+              </label>
+            </div>
+          </div>
+          <div>
+            <label className="block mb-1 font-semibold">신부 아버지</label>
+            <input
+              type="checkbox"
+              {...register("hideBrideFater")}
+              id="hideBrideFater"
+            />
+            <label htmlFor="hideBrideFater" className="font-semibold">
+              신부 아버지 정보 가리기
+            </label>
+            <Input {...register("brideFater")} placeholder="신부 아버지" />
+          </div>
+          <div>
+            <label className="block mb-1 font-semibold">신부 어머니</label>
+            <input
+              type="checkbox"
+              {...register("hideBrideMother")}
+              id="hideBrideMother"
+            />
+            <label htmlFor="hideBrideMother" className="font-semibold">
+              신부 어머니 정보 가리기
+            </label>
+            <Input {...register("brideMother")} placeholder="신부 어머니" />
+          </div>
+          <div>
+            <label className="block mb-1 font-semibold">신랑 아버지</label>
+            <input
+              type="checkbox"
+              {...register("hideGroomFater")}
+              id="hideGroomFater"
+            />
+            <label htmlFor="hideGroomFater" className="font-semibold">
+              신랑 아버지 정보 가리기
+            </label>
+            <Input {...register("groomFater")} placeholder="신랑 아버지" />
+          </div>
+          <div>
+            <label className="block mb-1 font-semibold">신랑 어머니</label>
+            <input
+              type="checkbox"
+              {...register("hideGroomMother")}
+              id="hideGroomMother"
+            />
+            <label htmlFor="hideGroomMother" className="font-semibold">
+              신랑 어머니 정보 가리기
+            </label>
+            <Input {...register("groomMother")} placeholder="신랑 어머니" />
+          </div>
+          <div>
+            <label className="block mb-1 font-semibold">
+              갤러리 이미지 업로드
+            </label>
+            <input
+              type="file"
+              multiple
+              accept="image/*"
+              {...register("galleryItems")}
+              onChange={(e) => {
+                const files = Array.from(e.target.files ?? []);
+                setValue("galleryItems", files as any);
+              }}
+              className="block w-full border rounded p-2"
+            />
+          </div>
+          <div>
+            <label className="block mb-1 font-semibold">추가 정보</label>
+            <textarea {...register("info")} placeholder="추가 정보" />
+          </div>
+          {/* <div>
+            <TinyEditor />
+          </div> */}
           <button
             type="submit"
             className="mt-6 py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600"
