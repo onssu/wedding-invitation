@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/(components)/ui/Button";
 import Link from "next/link";
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
         </li>
       ))}
       <hr />
+      <Button primary label="버튼" onClick={() => alert("버튼 클릭됨")} />
       <Link href="/signin">로그인</Link>
       <Link href="/detail">등록</Link>
       <Link href="/example">예시</Link>
