@@ -7,6 +7,7 @@ export interface ButtonProps {
   size?: "small" | "medium" | "large";
   /** Button contents */
   label: string;
+  type?: "button" | "submit" | "reset";
   /** Optional click handler */
   onClick?: () => void;
 }
@@ -17,6 +18,7 @@ export const Button = ({
   size = "medium",
   backgroundColor,
   label,
+  type,
   ...props
 }: ButtonProps) => {
   const base =
@@ -39,7 +41,7 @@ export const Button = ({
 
   return (
     <button
-      type="button"
+      type={type ? type : "button"}
       className={[base, sizeClass, modeClass].join(" ")}
       style={backgroundColor ? { backgroundColor } : undefined}
       {...props}

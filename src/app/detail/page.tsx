@@ -1,8 +1,9 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { Input } from "@/(components)/common/Input";
+import { Input } from "@/(components)/ui/Input";
 import TinyEditor from "@/(components)/common/TinyEditor";
+import { Button } from "@/(components)/ui/Button";
 
 export default function DetailPage() {
   const {
@@ -19,6 +20,7 @@ export default function DetailPage() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <h1>청첩장 정보 입력</h1>
       <main className="flex flex-col items-center bg-[#333] gap-6">
         <div className="overflow-hidden relative max-w-[100vw] w-[30rem] min-h-screen bg-[#fff] px-6">
           <div>
@@ -186,12 +188,7 @@ export default function DetailPage() {
           {/* <div>
             <TinyEditor />
           </div> */}
-          <button
-            type="submit"
-            className="mt-6 py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600"
-          >
-            저장
-          </button>
+          <Button primary type="submit" label="저장"></Button>
         </div>
       </main>
     </form>
