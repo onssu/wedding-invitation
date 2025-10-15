@@ -1,8 +1,8 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { Input } from "@/(components)/ui/Input";
-import TinyEditor from "@/(components)/ui/TinyEditor";
+import { Input } from "@/(components)/common/Input";
+import TinyEditor from "@/(components)/common/TinyEditor";
 
 export default function DetailPage() {
   const {
