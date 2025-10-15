@@ -7,3 +7,6 @@
 --
 React.js
 Next.js
+
+Storybook
+tailwindcss v4
