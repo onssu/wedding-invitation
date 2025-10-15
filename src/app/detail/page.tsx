@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import { Input } from "@/(components)/ui/Input";
 import TinyEditor from "@/(components)/common/TinyEditor";
 import { Button } from "@/(components)/ui/Button";
+import Checkbox from "@/(components)/ui/Checkbox";
+import Textarea from "@/(components)/ui/Textarea";
 
 export default function DetailPage() {
   const {
@@ -107,62 +109,47 @@ export default function DetailPage() {
           </div>
           <div className="flex flex-col gap-2 mt-4">
             <div className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                {...register("hideParents")}
+              <Checkbox
                 id="hideParents"
-              />
-              <label htmlFor="hideParents" className="font-semibold">
-                부모님 정보 전체 가리기
-              </label>
+                {...register("hideParents")}
+                label="부모님 정보 전체 가리기"
+              ></Checkbox>
             </div>
           </div>
           <div>
             <label className="block mb-1 font-semibold">신부 아버지</label>
-            <input
-              type="checkbox"
-              {...register("hideBrideFater")}
+            <Checkbox
               id="hideBrideFater"
-            />
-            <label htmlFor="hideBrideFater" className="font-semibold">
-              신부 아버지 정보 가리기
-            </label>
+              {...register("hideBrideFater")}
+              label="신부 아버지 정보 가리기"
+            ></Checkbox>
             <Input {...register("brideFater")} placeholder="신부 아버지" />
           </div>
           <div>
             <label className="block mb-1 font-semibold">신부 어머니</label>
-            <input
-              type="checkbox"
-              {...register("hideBrideMother")}
+            <Checkbox
               id="hideBrideMother"
-            />
-            <label htmlFor="hideBrideMother" className="font-semibold">
-              신부 어머니 정보 가리기
-            </label>
+              {...register("hideBrideMother")}
+              label="신부 어머니 정보 가리기"
+            ></Checkbox>
             <Input {...register("brideMother")} placeholder="신부 어머니" />
           </div>
           <div>
             <label className="block mb-1 font-semibold">신랑 아버지</label>
-            <input
-              type="checkbox"
-              {...register("hideGroomFater")}
+            <Checkbox
               id="hideGroomFater"
-            />
-            <label htmlFor="hideGroomFater" className="font-semibold">
-              신랑 아버지 정보 가리기
-            </label>
+              {...register("hideGroomFater")}
+              label="신랑 아버지 정보 가리기"
+            ></Checkbox>
             <Input {...register("groomFater")} placeholder="신랑 아버지" />
           </div>
           <div>
             <label className="block mb-1 font-semibold">신랑 어머니</label>
-            <input
-              type="checkbox"
-              {...register("hideGroomMother")}
+            <Checkbox
               id="hideGroomMother"
-            />
-            <label htmlFor="hideGroomMother" className="font-semibold">
-              신랑 어머니 정보 가리기
-            </label>
+              {...register("hideGroomMother")}
+              label="신랑 어머니 정보 가리기"
+            ></Checkbox>
             <Input {...register("groomMother")} placeholder="신랑 어머니" />
           </div>
           <div>
@@ -183,7 +170,7 @@ export default function DetailPage() {
           </div>
           <div>
             <label className="block mb-1 font-semibold">추가 정보</label>
-            <textarea {...register("info")} placeholder="추가 정보" />
+            <Textarea {...register("info")} placeholder="추가 정보" />
           </div>
           {/* <div>
             <TinyEditor />

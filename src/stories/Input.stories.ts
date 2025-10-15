@@ -10,6 +10,7 @@ import { Input, type InputProps } from "@/(components)/ui/Input";
 const meta = {
   title: "Components/Input",
   component: Input,
+  tags: ["autodocs"],
   parameters: {
     layout: "centered",
   },
