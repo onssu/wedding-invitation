@@ -6,6 +6,7 @@ import TinyEditor from "@/(components)/common/TinyEditor";
 import { Button } from "@/(components)/ui/Button";
 import Checkbox from "@/(components)/ui/Checkbox";
 import Textarea from "@/(components)/ui/Textarea";
+import Postcode from "@/(components)/common/Postcode";
 
 export default function DetailPage() {
   const {
@@ -22,11 +23,17 @@ export default function DetailPage() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <h1>청첩장 정보 입력</h1>
+      {/* ----------------- header ----------------- */}
+      <div className="flex pt-12 justify-center pb-6">
+        <h1 className="text-xl text-[#a77e51]">청첩장 정보 입력</h1>
+      </div>
+      {/* ----------------- contents ----------------- */}
       <main className="flex flex-col items-center bg-[#333] gap-6">
         <div className="overflow-hidden relative max-w-[100vw] w-[30rem] min-h-screen bg-[#fff] px-6">
           <div>
-            <label className="block mb-1 font-semibold">신부 이름</label>
+            <label className="block pt-4 pb-1 mb-1 font-semibold">
+              신부 이름
+            </label>
             <Input
               {...register("bride", { required: true })}
               placeholder="신부 이름"
@@ -38,7 +45,9 @@ export default function DetailPage() {
             )}
           </div>
           <div>
-            <label className="block mb-1 font-semibold">신랑 이름</label>
+            <label className="block pt-4 pb-1 mb-1 font-semibold">
+              신랑 이름
+            </label>
             <Input
               {...register("groom", { required: true })}
               placeholder="신랑 이름"
@@ -50,31 +59,34 @@ export default function DetailPage() {
             )}
           </div>
           <div>
-            <label className="block mb-1 font-semibold">날짜</label>
+            <label className="block pt-4 pb-1 mb-1 font-semibold">날짜</label>
             <Input type="date" {...register("date", { required: true })} />
             {errors.date && (
               <span className="text-red-500 text-xs">날짜를 입력하세요.</span>
             )}
           </div>
           <div>
-            <label className="block mb-1 font-semibold">시간</label>
+            <label className="block pt-4 pb-1 mb-1 font-semibold">시간</label>
             <Input type="time" {...register("time", { required: true })} />
             {errors.time && (
               <span className="text-red-500 text-xs">시간을 입력하세요.</span>
             )}
           </div>
           <div>
-            <label className="block mb-1 font-semibold">장소</label>
-            <Input
+            <label className="block pt-4 pb-1 mb-1 font-semibold">장소</label>
+            <Postcode />
+            {/* <Input
               {...register("location", { required: true })}
               placeholder="장소"
             />
             {errors.location && (
               <span className="text-red-500 text-xs">장소를 입력하세요.</span>
-            )}
+            )} */}
           </div>
           <div>
-            <label className="block mb-1 font-semibold">위도(lat)</label>
+            <label className="block pt-4 pb-1 mb-1 font-semibold">
+              위도(lat)
+            </label>
             <Input
               type="number"
               step="any"
@@ -86,7 +98,9 @@ export default function DetailPage() {
             )}
           </div>
           <div>
-            <label className="block mb-1 font-semibold">경도(lng)</label>
+            <label className="block pt-4 pb-1 mb-1 font-semibold">
+              경도(lng)
+            </label>
             <Input
               type="number"
               step="any"
@@ -98,7 +112,7 @@ export default function DetailPage() {
             )}
           </div>
           <div>
-            <label className="block mb-1 font-semibold">메시지</label>
+            <label className="block pt-4 pb-1 mb-1 font-semibold">메시지</label>
             <Input
               {...register("message", { required: true })}
               placeholder="메시지"
@@ -117,7 +131,9 @@ export default function DetailPage() {
             </div>
           </div>
           <div>
-            <label className="block mb-1 font-semibold">신부 아버지</label>
+            <label className="block pt-4 pb-1 mb-1 font-semibold">
+              신부 아버지
+            </label>
             <Checkbox
               id="hideBrideFater"
               {...register("hideBrideFater")}
@@ -126,7 +142,9 @@ export default function DetailPage() {
             <Input {...register("brideFater")} placeholder="신부 아버지" />
           </div>
           <div>
-            <label className="block mb-1 font-semibold">신부 어머니</label>
+            <label className="block pt-4 pb-1 mb-1 font-semibold">
+              신부 어머니
+            </label>
             <Checkbox
               id="hideBrideMother"
               {...register("hideBrideMother")}
@@ -135,7 +153,9 @@ export default function DetailPage() {
             <Input {...register("brideMother")} placeholder="신부 어머니" />
           </div>
           <div>
-            <label className="block mb-1 font-semibold">신랑 아버지</label>
+            <label className="block pt-4 pb-1 mb-1 font-semibold">
+              신랑 아버지
+            </label>
             <Checkbox
               id="hideGroomFater"
               {...register("hideGroomFater")}
@@ -144,7 +164,9 @@ export default function DetailPage() {
             <Input {...register("groomFater")} placeholder="신랑 아버지" />
           </div>
           <div>
-            <label className="block mb-1 font-semibold">신랑 어머니</label>
+            <label className="block pt-4 pb-1 mb-1 font-semibold">
+              신랑 어머니
+            </label>
             <Checkbox
               id="hideGroomMother"
               {...register("hideGroomMother")}
@@ -153,7 +175,7 @@ export default function DetailPage() {
             <Input {...register("groomMother")} placeholder="신랑 어머니" />
           </div>
           <div>
-            <label className="block mb-1 font-semibold">
+            <label className="block pt-4 pb-1 mb-1 font-semibold">
               갤러리 이미지 업로드
             </label>
             <input
@@ -169,13 +191,19 @@ export default function DetailPage() {
             />
           </div>
           <div>
-            <label className="block mb-1 font-semibold">추가 정보</label>
+            <label className="block pt-4 pb-1 mb-1 font-semibold">
+              추가 정보
+            </label>
             <Textarea {...register("info")} placeholder="추가 정보" />
           </div>
           {/* <div>
             <TinyEditor />
           </div> */}
-          <Button primary type="submit" label="저장"></Button>
+          {/* ----------------- bottom ----------------- */}
+          <div className="flex gap-2 mt-6 mb-12 items-center justify-center">
+            <Button primary type="submit" label="저장"></Button>
+            <Button label="취소" onClick={() => window.history.back()}></Button>
+          </div>
         </div>
       </main>
     </form>

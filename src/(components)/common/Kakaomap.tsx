@@ -17,9 +17,10 @@ export default function Kakaomap({ lat, lng }: { lat: number; lng: number }) {
 
     const script = document.createElement("script");
 
+    const appKey = process.env.NEXT_PUBLIC_KAKAO_APP_JS_KEY;
+
     script.id = "kakao-map-script";
-    script.src =
-      "//dapi.kakao.com/v2/maps/sdk.js?appkey=aa1fc59a611abb0428f224e927bac202&autoload=false";
+    script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${appKey}&autoload=false`;
     script.async = true;
     script.onload = () => {
       window.kakao.maps.load(() => {
