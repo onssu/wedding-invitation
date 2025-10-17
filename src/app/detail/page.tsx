@@ -75,6 +75,10 @@ export default function DetailPage() {
           <div>
             <label className="block pt-4 pb-1 mb-1 font-semibold">장소</label>
             <Postcode />
+            {/* <Input {...register("location", { required: true })} /> */}
+            {errors.location && (
+              <span className="text-red-500 text-xs">장소를 입력하세요.</span>
+            )}
             {/* <Input
               {...register("location", { required: true })}
               placeholder="장소"
@@ -83,7 +87,7 @@ export default function DetailPage() {
               <span className="text-red-500 text-xs">장소를 입력하세요.</span>
             )} */}
           </div>
-          <div>
+          {/* <div>
             <label className="block pt-4 pb-1 mb-1 font-semibold">
               위도(lat)
             </label>
@@ -110,7 +114,7 @@ export default function DetailPage() {
             {errors.lng && (
               <span className="text-red-500 text-xs">경도를 입력하세요.</span>
             )}
-          </div>
+          </div> */}
           <div>
             <label className="block pt-4 pb-1 mb-1 font-semibold">메시지</label>
             <Input
