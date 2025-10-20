@@ -11,16 +11,19 @@ export default function Home() {
 
   return (
     <main className="flex flex-col items-center">
+      {/* ----------------- header ----------------- */}
+      <Link href="/signin">로그인</Link>
+      {/* ----------------- contents ----------------- */}
       {posts.map((post) => (
         <li key={post.seq} className="">
           <Link href={`/view/${post.seq}`}>{post.title}</Link>
         </li>
       ))}
-      <hr />
-      <Button primary label="버튼" onClick={() => alert("버튼 클릭됨")} />
-      <Link href="/signin">로그인</Link>
-      <Link href="/detail">등록</Link>
-      <Link href="/example">예시</Link>
+      {/* ----------------- bottom ----------------- */}
+      <div className="flex direction-row justify-space-around">
+        <Link href="/detail">등록</Link>
+        <Link href="/example">예시</Link>
+      </div>
     </main>
   );
 }
