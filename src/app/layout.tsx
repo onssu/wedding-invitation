@@ -1,6 +1,8 @@
+import Header from "@/(components)/common/Header";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import AppProvider from "@/(utils)/AppProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,13 +25,29 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ko">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#333]`}
       >
-        <div className="max-w-[100vw] w-[30rem] min-h-screen m-[auto] bg-[#fff]">
-          {children}
-        </div>
+        <AppProvider>
+          {/* 화면 중앙에 모바일 크기 컨테이너 배치 */}
+          <div className="min-h-screen flex items-start justify-center">
+            <div className="w-full max-w-[30rem] min-h-screen bg-white shadow-sm relative overflow-hidden">
+              {/* Header는 내부에 두되 fixed 스타일을 쓰면 겹치지 않도록 main에 패딩 추가 */}
+              <Header />
+
+              {/* safe-area 고려: 헤더 높이(3rem = h-12) + 디바이스 safe-area-top */}
+              <main
+                className="h-full pb-8"
+                style={{
+                  paddingTop: "calc(3rem + env(safe-area-inset-top, 0px))",
+                }}
+              >
+                {children}
+              </main>
+            </div>
+          </div>
+        </AppProvider>
       </body>
     </html>
   );

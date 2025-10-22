@@ -1,4 +1,6 @@
-export interface ButtonProps {
+import React from "react";
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /** Is this the principal call to action on the page? */
   primary?: boolean;
   /** What background color to use */
@@ -6,18 +8,15 @@ export interface ButtonProps {
   /** How large should the button be? */
   size?: "small" | "medium" | "large";
   /** Button contents */
-  label: string;
-  type?: "button" | "submit" | "reset";
-  /** Optional click handler */
-  onClick?: () => void;
+  children: React.ReactNode;
+  // type & onClick 등은 React.ButtonHTMLAttributes에서 상속됨
 }
 
-/** Primary UI component for user interaction */
-export const Button = ({
+const Button = ({
   primary = false,
   size = "medium",
   backgroundColor,
-  label,
+  children,
   type,
   ...props
 }: ButtonProps) => {
@@ -35,7 +34,6 @@ export const Button = ({
     ? "bg-[#555ab9] text-white"
     : [
         "bg-transparent text-[#333]",
-        // inset 1px shadow 대체 (원본: rgba(0,0,0,.15) 0 0 0 1px inset)
         "shadow-[inset_0_0_0_1px_rgba(0,0,0,0.15)]",
       ].join(" ");
 
@@ -46,7 +44,9 @@ export const Button = ({
       style={backgroundColor ? { backgroundColor } : undefined}
       {...props}
     >
-      {label}
+      {children}
     </button>
   );
 };
+
+export default Button;

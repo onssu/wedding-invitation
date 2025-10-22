@@ -3,7 +3,7 @@
 import { useForm } from "react-hook-form";
 import { Input } from "@/(components)/ui/Input";
 import TinyEditor from "@/(components)/common/TinyEditor";
-import { Button } from "@/(components)/ui/Button";
+import Button from "@/(components)/ui/Button";
 import Checkbox from "@/(components)/ui/Checkbox";
 import Textarea from "@/(components)/ui/Textarea";
 import Postcode from "@/(components)/common/Postcode";
@@ -205,8 +205,10 @@ export default function DetailPage() {
           </div> */}
           {/* ----------------- bottom ----------------- */}
           <div className="flex gap-2 mt-6 mb-12 items-center justify-center">
-            <Button primary type="submit" label="저장"></Button>
-            <Button label="취소" onClick={() => window.history.back()}></Button>
+            <Button primary type="submit">
+              저장
+            </Button>
+            <Button onClick={() => window.history.back()}>취소</Button>
           </div>
         </div>
       </main>

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Input from "../ui/Input";
-import { Button } from "../ui/Button";
+import Button from "@/(components)/ui/Button";
 
 declare global {
   interface Window {
