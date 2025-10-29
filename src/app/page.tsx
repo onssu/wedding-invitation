@@ -67,28 +67,34 @@ export default function Home() {
         </label>
       </div>
 
-      <ul className="w-full max-w-3xl space-y-4">
-        {posts.map((post) => (
-          <li
-            key={post.seq}
-            className="relative bg-white border-b-1 p-4 flex justify-between items-center hover:shadow-md transition"
-          >
-            <Link
-              href={`/view/${post.seq}`}
-              className="absolute inset-0 z-0"
-              aria-label={`글 보기 ${post.title}`}
-            />
-            <div className="relative z-10">
-              <div className="text-xs text-gray-500 mt-1">
-                글 번호: {post.seq}
-              </div>
-              <span className="text-lg font-medium text-gray-800">
-                {post.title}
-              </span>
-            </div>
-          </li>
-        ))}
-      </ul>
+      <div className="w-full max-w-3xl h-full flex flex-col">
+        {posts.length > 0 ? (
+          <ul className="w-full space-y-4 flex-1">
+            {posts.map((post) => (
+              <li
+                key={post.seq}
+                className="relative bg-white shadow-sm rounded-md p-4 flex justify-between items-center hover:shadow-md transition"
+              >
+                <Link
+                  href={`/view/${post.seq}`}
+                  className="absolute inset-0 z-0"
+                  aria-label={`글 보기 ${post.title}`}
+                />
+                <div className="flex direction-row relative z-10">
+                  <div className="text-xs text-gray-500 mt-1">{post.seq}</div>
+                  <span className="pl-2 text-lg font-medium text-gray-800">
+                    {post.title}
+                  </span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <div className="flex-1 flex items-center justify-center text-gray-500">
+            작성된 글이 없습니다.
+          </div>
+        )}
+      </div>
 
       {/* ----------- pagination ----------- */}
       <div className="flex items-center gap-2 pt-6">

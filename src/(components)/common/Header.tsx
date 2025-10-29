@@ -30,7 +30,7 @@ export default function Header({
           </h1>
 
           <div className="w-10 flex justify-end">
-            {isLoggedIn ? (
+            {/* {isLoggedIn ? (
               <Button
                 size="small"
                 type="button"
@@ -48,7 +48,7 @@ export default function Header({
               >
                 로그인
               </Button>
-            )}
+            )} */}
           </div>
         </div>
       </div>
