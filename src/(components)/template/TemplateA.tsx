@@ -112,7 +112,7 @@ export default function TemplateA({
           <div>
             <div className="text-center py-8 mt-8">Gallery</div>
             <div className="flex justify-center items-center flex-wrap gap-8">
-              <Gallery galleryItems={data.galleryItems} />
+              {/* <Gallery galleryItems={data.galleryItems} /> */}
             </div>
           </div>
         </section>
