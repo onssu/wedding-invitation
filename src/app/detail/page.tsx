@@ -7,6 +7,7 @@ import Button from "@/(components)/ui/Button";
 import Checkbox from "@/(components)/ui/Checkbox";
 import Textarea from "@/(components)/ui/Textarea";
 import Postcode from "@/(components)/common/Postcode";
+import WeddingMessageAI from "@/(components)/common/WeddingMessageAi";
 
 export default function DetailPage() {
   const {
@@ -115,6 +116,7 @@ export default function DetailPage() {
               <span className="text-red-500 text-xs">경도를 입력하세요.</span>
             )}
           </div> */}
+          <WeddingMessageAI />
           <div>
             <label className="block pt-4 pb-1 mb-1 font-semibold">메시지</label>
             <Input
