@@ -12,7 +12,7 @@
     "test": "vitest run",
     "prisma:generate": "prisma generate",
     "prisma:deploy": "prisma migrate deploy",
-    "vercel-build": "prisma migrate deploy && next build",
+    "vercel-build": "next build",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
