@@ -37,12 +37,11 @@ export default function RootLayout({
               <Header />
 
               {/* safe-area 고려: 헤더 높이(3rem = h-12) + 디바이스 safe-area-top */}
-              <main
-                className="h-full pb-8"
-                style={{
+              <main className="h-full">
+                {/* style={{
                   paddingTop: "calc(3rem + env(safe-area-inset-top, 0px))",
-                }}
-              >
+                  paddingBottom:"32px",
+                }} */}
                 {children}
               </main>
             </div>

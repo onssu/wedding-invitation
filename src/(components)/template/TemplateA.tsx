@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Kakaomap from "@/(components)/common/Kakaomap";
 import Gallery from "@/(components)/common/Gallery";
+import PetalCanvasOverlay from "@/(components)/common/PetalCanvasOverlay";
 
 export default function TemplateA({
   seq,
@@ -11,8 +12,17 @@ export default function TemplateA({
 }) {
   return (
     <main className="flex flex-col items-center">
-      <div className="overflow-hidden relative max-w-[100vw] w-[30rem] min-h-screen bg-[#fff]">
+      <div className="overflow-hidden relative max-w-[100vw] w-[30rem] min-h-screen bg-[url('/assets/images/bg-paper-ivory.png')] bg-cover bg-center bg-no-repeat">
         <section className="w-full relative">
+          <PetalCanvasOverlay
+            className="absolute pointer-events-none inset-0"
+            total={42}
+            speedXMul={0.3}
+            speedYMul={0.3}
+            tintColor="#ffffff"
+            minSize={8}
+            maxSize={14}
+          />
           <Image
             src="https://newsimg-hams.hankookilbo.com/2022/03/31/065f576b-0ff9-411d-8edb-edc139721de0.jpg"
             alt=""
@@ -36,12 +46,9 @@ export default function TemplateA({
         </section>
         <section className="p-4">
           <div className="text-center">
-            <div
-              className="text-center whitespace-pre-line py-16"
-              dangerouslySetInnerHTML={{
-                __html: data.message.replace(/\n/g, "<br/>"),
-              }}
-            />
+            <div className="text-center whitespace-pre-line py-16">
+              {data.message?.replace(/\\n/g, "\n")}
+            </div>
           </div>
           <div className="w-[60%] my-8 border-t border-[#bfa075] m-auto" />
           <div className="text-center pt-16">
