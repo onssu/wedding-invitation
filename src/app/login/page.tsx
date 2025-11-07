@@ -65,12 +65,14 @@ export default function LoginPage() {
             placeholder="비밀번호"
             className="mb-4 p-2 border border-gray-300 rounded"
           />
-          <Button type="button" primary onClick={handleLogin}>
-            로그인
-          </Button>
-          <Button type="button" primary onClick={moveToSignUp}>
-            회원가입
-          </Button>
+          <div>
+            <Button type="button" primary onClick={handleLogin}>
+              로그인
+            </Button>
+            <Button type="button" primary onClick={moveToSignUp}>
+              회원가입
+            </Button>
+          </div>
         </div>
       </div>
     </main>
