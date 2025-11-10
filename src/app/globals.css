@@ -46,74 +46,93 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 }
-
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+
+  /* 베이스 톤 (밝은 테마) */
+  --background: #fffaf6; /* 아이보리 화이트 */
+  --foreground: #2f2a26; /* 진한 브라운 */
+
+  /* 카드/요소 */
+  --card: #ffffff;
+  --card-foreground: #2f2a26;
+  --popover: #ffffff;
+  --popover-foreground: #2f2a26;
+
+  /* 주요 컬러 */
+  --primary: #a77e51; /* 샴페인 골드 */
+  --primary-foreground: #fffaf6;
+  --secondary: #f4e9df; /* 크림베이지 */
+  --secondary-foreground: #5c4633;
+
+  /* 보조 및 경계선 */
+  --muted: #f6eee8;
+  --muted-foreground: #8b7966;
+  --accent: #e8d4c3;
+  --accent-foreground: #2f2a26;
+  --destructive: #d4716a;
+
+  --border: #eaded2;
+  --input: #eaded2;
+  --ring: #a77e51;
+
+  /* 그래프 / 장식 */
+  --chart-1: #a77e51;
+  --chart-2: #d8b48a;
+  --chart-3: #8b7966;
+  --chart-4: #f6eee8;
+  --chart-5: #c59f7a;
+
+  /* 사이드바 */
+  --sidebar: #fffaf6;
+  --sidebar-foreground: #2f2a26;
+  --sidebar-primary: #a77e51;
+  --sidebar-primary-foreground: #fffaf6;
+  --sidebar-accent: #f4e9df;
+  --sidebar-accent-foreground: #5c4633;
+  --sidebar-border: #eaded2;
+  --sidebar-ring: #a77e51;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  /* 다크 테마 (따뜻한 밤 톤) */
+  --background: #2f2a26;
+  --foreground: #f5ede7;
+
+  --card: #3b342f;
+  --card-foreground: #f5ede7;
+  --popover: #3b342f;
+  --popover-foreground: #f5ede7;
+
+  --primary: #d8b48a; /* 더 밝은 골드 */
+  --primary-foreground: #2f2a26;
+  --secondary: #5c4633; /* 초콜릿 베이지 */
+  --secondary-foreground: #f5ede7;
+
+  --muted: #4a403a;
+  --muted-foreground: #c9b9a6;
+  --accent: #5c4633;
+  --accent-foreground: #f5ede7;
+  --destructive: #c06b65;
+
+  --border: #4a403a;
+  --input: #4a403a;
+  --ring: #d8b48a;
+
+  --chart-1: #d8b48a;
+  --chart-2: #a77e51;
+  --chart-3: #c9b9a6;
+  --chart-4: #8b7966;
+  --chart-5: #e8d4c3;
+
+  --sidebar: #2f2a26;
+  --sidebar-foreground: #f5ede7;
+  --sidebar-primary: #d8b48a;
+  --sidebar-primary-foreground: #2f2a26;
+  --sidebar-accent: #5c4633;
+  --sidebar-accent-foreground: #f5ede7;
+  --sidebar-border: #4a403a;
+  --sidebar-ring: #d8b48a;
 }
 
 @layer base {

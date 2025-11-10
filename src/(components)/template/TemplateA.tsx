@@ -2,6 +2,11 @@ import Image from "next/image";
 import Kakaomap from "@/(components)/common/Kakaomap";
 import Gallery from "@/(components)/common/Gallery";
 import PetalCanvasOverlay from "@/(components)/common/PetalCanvasOverlay";
+import AudioLayout from "@/(components)/common/AudioLayout";
+import Button from "@/(components)/ui/Button";
+import { useState } from "react";
+import ContactOverlay from "@/(components)/common/ContactOverlay";
+import Calendar from "../common/Calendar";
 
 export default function TemplateA({
   seq,
@@ -10,9 +15,23 @@ export default function TemplateA({
   seq: string;
   data: FormDataType;
 }) {
+  const [open, setOpen] = useState(false);
+
+  const groomSide = [
+    { name: "신랑", relation: "당사자", phone: "010" },
+    { name: "아버지", relation: "신랑측", phone: "010" },
+    { name: "어머니", relation: "신랑측", phone: "010" },
+  ];
+  const brideSide = [
+    { name: "신부", relation: "당사자", phone: "010" },
+    { name: "아버지", relation: "신부측", phone: "010" },
+    { name: "어머니", relation: "신부측", phone: "010" },
+  ];
+
   return (
     <main className="flex flex-col items-center">
-      <div className="overflow-hidden relative max-w-[100vw] w-[30rem] min-h-screen bg-[url('/assets/images/bg-paper-ivory.png')] bg-cover bg-center bg-no-repeat">
+      <AudioLayout />
+      <div className="overflow-hidden relative max-w-[100vw] w-[30rem] min-h-screen">
         <section className="w-full relative">
           <PetalCanvasOverlay
             className="absolute pointer-events-none inset-0"
@@ -44,6 +63,9 @@ export default function TemplateA({
             <p>{data.location}</p>
           </div>
         </section>
+        <section className="flex item-center justify-center">
+          <Calendar date={"2027.01.01"} />
+        </section>
         <section className="p-4">
           <div className="text-center">
             <div className="text-center whitespace-pre-line py-16">
@@ -60,57 +82,20 @@ export default function TemplateA({
             </p>
           </div>
         </section>
-        <section>
-          <div className="text-center py-8">
-            <div>
-              신랑측 연락처 <a></a>
-              <div>
-                신랑
-                <a href="tel:010">
-                  <Image
-                    src="/assets/icons/phone.svg"
-                    alt="전화"
-                    className="w-6 h-6 inline-block"
-                    width={30}
-                    height={30}
-                  />
-                </a>
-                <a href="sms:010">
-                  <Image
-                    src="/icons/message.svg"
-                    alt="문자"
-                    className="w-6 h-6 inline-block"
-                    width={30}
-                    height={30}
-                  />
-                </a>
-              </div>
-            </div>
-            <div>
-              신부측 연락처
-              <div>
-                신부
-                <a href="tel:010">
-                  <Image
-                    src="/assets/icons/phone.svg"
-                    alt="전화"
-                    className="w-6 h-6 inline-block"
-                    width={30}
-                    height={30}
-                  />
-                </a>
-                <a href="sms:010">
-                  <Image
-                    src="/icons/message.svg"
-                    alt="문자"
-                    className="w-6 h-6 inline-block"
-                    width={30}
-                    height={30}
-                  />
-                </a>
-              </div>
-            </div>
-          </div>
+        <section className="text-center py-8">
+          <Button
+            onClick={() => {
+              setOpen(true);
+            }}
+          >
+            연락하기
+          </Button>
+          <ContactOverlay
+            open={open}
+            onClose={() => setOpen(false)}
+            groomSide={groomSide}
+            brideSide={brideSide}
+          />
         </section>
         <section>
           <div className="text-center py-8 mt-8">마음 전하는 곳</div>

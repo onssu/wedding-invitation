@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/(components)/ui/Button";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -49,6 +50,12 @@ export default function LoginPage() {
   return (
     <main>
       <div className="flex flex-col items-center justify-center h-screen">
+        <Image
+          src="/assets/images/rose.png"
+          alt={"장미"}
+          width={30}
+          height={70}
+        />
         <h3 className="text-center">모바일 청첩장</h3>
         <div className="flex flex-col items-center p-4">
           <input
@@ -65,14 +72,12 @@ export default function LoginPage() {
             placeholder="비밀번호"
             className="mb-4 p-2 border border-gray-300 rounded"
           />
-          <div>
-            <Button type="button" primary onClick={handleLogin}>
-              로그인
-            </Button>
-            <Button type="button" primary onClick={moveToSignUp}>
-              회원가입
-            </Button>
-          </div>
+          <Button type="button" primary onClick={handleLogin}>
+            로그인
+          </Button>
+          <Button type="button" primary onClick={moveToSignUp}>
+            회원가입
+          </Button>
         </div>
       </div>
     </main>

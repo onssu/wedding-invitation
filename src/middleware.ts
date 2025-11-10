@@ -60,6 +60,7 @@ export async function middleware(req: NextRequest) {
     pathname.startsWith("/_next") ||
     pathname.startsWith("/favicon") ||
     pathname.startsWith("/images") ||
+    pathname.startsWith("/assets") ||
     pathname.startsWith("/fonts")
   ) {
     return NextResponse.next();
@@ -108,5 +109,7 @@ export async function middleware(req: NextRequest) {
 
 export const config = {
   // 미들웨어를 적용할 경로(정적 리소스 제외)
-  matcher: ["/((?!_next/static|_next/image|favicon.ico|images|fonts).*)"],
+  matcher: [
+    "/((?!_next/static|_next/image|favicon.ico|images|assets|fonts).*)",
+  ],
 };

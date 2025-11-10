@@ -33,7 +33,7 @@ export const weddingDatas = pgTable("wedding_datas", {
   groomFater: varchar("groom_fater", { length: 50 }),
   groomMother: varchar("groom_mother", { length: 50 }),
 
-  galleryItems: jsonb("gallery_items").$type<string[]>(),
+  galleryItems: jsonb("gallery_items").$type<string[]>().notNull().default([]),
   info: text("info"),
 
   createdAt: timestamp("created_at").defaultNow(),

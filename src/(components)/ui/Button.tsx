@@ -31,7 +31,7 @@ const Button = ({
       : "py-[11px] px-[20px] text-[14px]";
 
   const modeClass = primary
-    ? "bg-[#555ab9] text-white"
+    ? "bg-primary text-white"
     : [
         "bg-transparent text-[#333]",
         "shadow-[inset_0_0_0_1px_rgba(0,0,0,0.15)]",

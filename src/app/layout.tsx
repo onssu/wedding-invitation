@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#333]`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[url('/assets/images/bg-paper-ivory.png')] bg-cover bg-center bg-no-repeat`}
       >
         <AppProvider>
           {/* 화면 중앙에 모바일 크기 컨테이너 배치 */}
@@ -37,11 +37,13 @@ export default function RootLayout({
               <Header />
 
               {/* safe-area 고려: 헤더 높이(3rem = h-12) + 디바이스 safe-area-top */}
-              <main className="h-full">
-                {/* style={{
+              <main
+                className="h-full"
+                style={{
                   paddingTop: "calc(3rem + env(safe-area-inset-top, 0px))",
-                  paddingBottom:"32px",
-                }} */}
+                  paddingBottom: "32px",
+                }}
+              >
                 {children}
               </main>
             </div>

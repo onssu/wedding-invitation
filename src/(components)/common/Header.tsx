@@ -1,10 +1,12 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Button from "@/(components)/ui/Button";
 import { useState } from "react";
 import HamburgerMenu from "./HamburgerMenu";
+import { getUser } from "@/(utils)/GetUser";
 
 type HeaderProps = {
   title?: string;
@@ -18,6 +20,7 @@ export default function Header({
   onAuthChange,
 }: HeaderProps) {
   const router = useRouter();
+
   const [loading, setLoading] = useState(false);
 
   const handleLogout = async () => {
@@ -47,9 +50,17 @@ export default function Header({
       <div className="max-w-[30rem] w-full mx-auto bg-white border-b">
         <div className="flex items-center justify-between h-12 px-4">
           <div className="w-10" />
-          <h1 className="text-center text-lg font-semibold text-[#a77e51] truncate">
-            {title}
-          </h1>
+          <div className="flex gap-2">
+            <Image
+              src="/assets/images/rose.png"
+              alt={"장미"}
+              width={13}
+              height={20}
+            />
+            <h1 className="text-center text-lg font-semibold text-[#a77e51] truncate">
+              {title}
+            </h1>
+          </div>
           <div className="w-9 flex justify-end">
             <HamburgerMenu />
           </div>
