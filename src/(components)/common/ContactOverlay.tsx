@@ -1,19 +1,20 @@
 // src/(components)/contact/ContactOverlay.tsx
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 
 type Person = {
   name: string;
   relation?: string; // 예: 아버지, 어머니, 신랑, 신부 등
-  phone: string; // 하이픈 포함/미포함 상관없음
+  phone: string;
 };
 
 type ContactOverlayProps = {
   open: boolean;
   onClose: () => void;
-  groomSide: Person[]; // 길이 3 권장
-  brideSide: Person[]; // 길이 3 권장
+  groomSide: Person[];
+  brideSide: Person[];
   title?: string;
 };
 
@@ -25,6 +26,10 @@ export default function ContactOverlay({
   title = "연락하기",
 }: ContactOverlayProps) {
   const dialogRef = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
+
+  // Portal 마운트 확인
+  useEffect(() => setMounted(true), []);
 
   // 배경 스크롤 잠금
   useEffect(() => {
@@ -64,6 +69,7 @@ export default function ContactOverlay({
     };
 
     document.addEventListener("keydown", handleKeyDown);
+
     // 진입 시 첫 포커스
     setTimeout(() => {
       dialogRef.current
@@ -74,18 +80,12 @@ export default function ContactOverlay({
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [open, onClose]);
 
-  if (!open) return null;
+  if (!open || !mounted) return null;
 
-  // 유틸: sms 링크
-  const smsHref = (phone: string, body?: string) => {
-    // 단순 sms:스킴 (플랫폼별 ;? 차이는 브라우저가 처리)
-    return `sms:${normalize(phone)}${
-      body ? `?body=${encodeURIComponent(body)}` : ""
-    }`;
-  };
-
-  const telHref = (phone: string) => `tel:${normalize(phone)}`;
   const normalize = (p: string) => p.replace(/[^\d+]/g, "");
+  const telHref = (phone: string) => `tel:${normalize(phone)}`;
+  const smsHref = (phone: string, body?: string) =>
+    `sms:${normalize(phone)}${body ? `?body=${encodeURIComponent(body)}` : ""}`;
 
   const Section = ({ title, items }: { title: string; items: Person[] }) => (
     <section aria-labelledby={`${title}-label`} className="space-y-3">
@@ -133,9 +133,9 @@ export default function ContactOverlay({
     </section>
   );
 
-  return (
+  const overlayElement = (
     <div
-      className="fixed inset-0 z-[1000]"
+      className="fixed inset-0 z-[1200]"
       aria-labelledby="contact-dialog-title"
       role="dialog"
       aria-modal="true"
@@ -178,9 +178,12 @@ export default function ContactOverlay({
       </div>
     </div>
   );
+
+  // ✨ Portal로 body 밑에 렌더
+  return createPortal(overlayElement, document.body);
 }
 
-/* ====== 아이콘 (간단한 SVG) ====== */
+/* ====== 아이콘 ====== */
 function PhoneIcon({ className = "" }: { className?: string }) {
   return (
     <svg

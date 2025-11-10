@@ -103,7 +103,7 @@ export default function Home() {
                   className="absolute inset-0 z-0"
                   aria-label={`글 보기 ${post.title}`}
                 />
-                <div className="flex direction-row relative z-10">
+                <div className="flex flex-row relative z-10">
                   <div className="text-xs text-gray-500 mt-1">{post.seq}</div>
                   <span className="pl-2 text-lg font-medium text-gray-800">
                     {post.title}
@@ -164,7 +164,7 @@ export default function Home() {
         </button>
       </div> */}
       {/* ----------------- bottom ----------------- */}
-      <div className="w-full flex direction-row justify-between p-4">
+      <div className="w-full flex flex-row justify-between p-4">
         <Button
           primary
           type="button"

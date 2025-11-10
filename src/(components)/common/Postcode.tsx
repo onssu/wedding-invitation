@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Input from "../ui/Input";
+import Input from "@/(components)/ui/Input";
 import Button from "@/(components)/ui/Button";
 
 declare global {
@@ -173,9 +173,9 @@ export default function Postcode() {
 
   return (
     <div>
-      <div className="flex direction-row gap-2">
+      <div className="flex flex-row gap-2">
         <Input value={address} disabled />
-        <Button onClick={openPostcode} label="우편번호 찾기" />
+        <Button onClick={openPostcode}>우편번호 찾기</Button>
       </div>
 
       <div

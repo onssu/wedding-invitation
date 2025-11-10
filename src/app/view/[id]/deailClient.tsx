@@ -38,7 +38,6 @@ export default function DetailClient({ id }: { id: string }) {
           throw new Error(j?.message || `요청 실패 (${res.status})`);
         }
         const { data } = await res.json();
-        console.log("data: ", data);
         if (alive) setData(data);
       } catch (e: any) {
         if (alive) setErr(e?.message || "불러오기에 실패했습니다.");

@@ -46,6 +46,11 @@ export default function Kakaomap({ lat, lng }: { lat: number; lng: number }) {
   }, []);
 
   return (
-    <div ref={mapRef} id="map" style={{ width: "100%", height: "400px" }} />
+    <div
+      data-reveal
+      ref={mapRef}
+      id="map"
+      style={{ width: "100%", height: "400px" }}
+    />
   );
 }

@@ -7,6 +7,7 @@ export interface ButtonProps
   backgroundColor?: string;
   /** How large should the button be? */
   size?: "small" | "medium" | "large";
+  className?: string;
   /** Button contents */
   children: React.ReactNode;
   // type & onClick 등은 React.ButtonHTMLAttributes에서 상속됨
@@ -18,6 +19,7 @@ const Button = ({
   backgroundColor,
   children,
   type,
+  className,
   ...props
 }: ButtonProps) => {
   const base =
@@ -40,7 +42,7 @@ const Button = ({
   return (
     <button
       type={type ? type : "button"}
-      className={[base, sizeClass, modeClass].join(" ")}
+      className={[base, sizeClass, modeClass, className].join(" ")}
       style={backgroundColor ? { backgroundColor } : undefined}
       {...props}
     >
