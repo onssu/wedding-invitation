@@ -170,11 +170,6 @@ export default function Calendar({ date }: { date: string }) {
                   title={cell.holidayName || undefined}
                 >
                   {cell.d}
-                  {isHoliday && (
-                    <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 text-[10px] leading-none text-red-500">
-                      ●
-                    </span>
-                  )}
                 </div>
               </div>
             );
