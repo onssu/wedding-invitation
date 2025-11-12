@@ -17,7 +17,7 @@ export default function Gallery({ galleryItems }: GalleryProps) {
   const visibleItems = expanded ? galleryItems : galleryItems.slice(0, 9);
 
   return (
-    <div className="flex flex-wrap gap-4 justify-center">
+    <div className="flex flex-wrap gap-2 justify-center">
       {visibleItems.map((item, i) => (
         <li key={i} className="list-none">
           <button

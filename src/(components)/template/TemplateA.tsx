@@ -11,6 +11,7 @@ import ContactOverlay from "@/(components)/common/ContactOverlay";
 import Calendar from "@/(components)/common/Calendar";
 import WeddingDayCountdown from "@/(components)/common/WeddingCountdown";
 import AccountAccordion from "@/(components)/common/AccountAccordion";
+import GuestbookList from "../common/GuestbookList";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -198,6 +199,12 @@ export default function TemplateA({
               }}
             />
           </div>
+        </section>
+        <section>
+          <GuestbookList weddingId={Number(seq)} />
+        </section>
+        <section>
+          <Button>수정</Button>
         </section>
       </div>
     </main>

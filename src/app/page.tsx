@@ -103,11 +103,12 @@ export default function Home() {
                   className="absolute inset-0 z-0"
                   aria-label={`글 보기 ${post.title}`}
                 />
-                <div className="flex flex-row relative z-10">
-                  <div className="text-xs text-gray-500 mt-1">{post.seq}</div>
+                <div className="w-full flex flex-row justify-between relative z-10">
+                  <div className="text-xs text-gray-500 mt-1">{post.id}</div>
                   <span className="pl-2 text-lg font-medium text-gray-800">
                     {post.title}
                   </span>
+                  <span>{post.createdAt}</span>
                 </div>
               </li>
             ))}
