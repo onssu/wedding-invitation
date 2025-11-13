@@ -1,4 +1,3 @@
-// src/components/AccountAccordion.tsx
 "use client";
 
 import { useState } from "react";
@@ -17,18 +16,10 @@ type Group = {
 };
 
 type Props = {
-  overline?: string; // ACCOUNT
-  heading?: string; // 마음 전하실 곳
-  description?: string; // 여러 줄 가능 (\n)
   groups: Group[];
 };
 
-export default function AccountAccordion({
-  overline = "ACCOUNT",
-  heading = "마음 전하실 곳",
-  description = "참석이 어려우신 분들을 위해\n계좌번호를 기재하였습니다.\n너그러운 마음으로 양해 부탁드립니다.",
-  groups,
-}: Props) {
+export default function AccountAccordion({ groups }: Props) {
   const [open, setOpen] = useState<Record<string, boolean>>(() =>
     groups.reduce((acc, g) => {
       acc[g.id] = g.defaultOpen ?? false;
@@ -49,18 +40,6 @@ export default function AccountAccordion({
 
   return (
     <section className="px-4 py-8">
-      {/* 상단 안내 */}
-      <div className="text-center mb-6">
-        <p className="text-[10px] tracking-[0.25em] text-foreground/50">
-          {overline}
-        </p>
-        <h2 className="mt-1 text-lg font-semibold">{heading}</h2>
-        <p className="mt-3 text-sm text-foreground/70 leading-relaxed whitespace-pre-line">
-          {description}
-        </p>
-      </div>
-
-      {/* 아코디언 그룹 */}
       <div className="space-y-4">
         {groups.map((g) => {
           const isOpen = !!open[g.id];

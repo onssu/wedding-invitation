@@ -4,9 +4,12 @@ import Button from "@/(components)/ui/Button";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useAuthStore } from "@/(store)/authStore";
 
 export default function LoginPage() {
   const router = useRouter();
+
+  const setAuth = useAuthStore((s) => s.setAuth);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -33,7 +36,13 @@ export default function LoginPage() {
       const data = await res.json();
 
       if (!res.ok) throw new Error(data.message || "로그인 실패");
+      console.log('data.user.role === "ADMIN": ', data.user.role === "ADMIN");
 
+      setAuth({
+        isLoggedIn: true,
+        isAdmin: data.user.role === "ADMIN",
+        user: data.user,
+      });
       // ✅ 로그인 성공 시 — 서버에서 JWT 쿠키가 자동 저장됨
       router.replace("/"); // 메인 페이지로 이동 (또는 `/dashboard`)
     } catch (err: any) {

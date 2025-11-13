@@ -43,9 +43,7 @@ export default function GuestbookList({ weddingId }: { weddingId: number }) {
   };
 
   return (
-    <div className="mt-8 border-t pt-4 px-4">
-      <h2 className="text-lg font-semibold mb-3">방명록</h2>
-
+    <div className="mt-8 pt-4 px-8">
       {/* 입력 폼 */}
       <div className="flex flex-col gap-2 mb-4">
         <input
@@ -68,7 +66,7 @@ export default function GuestbookList({ weddingId }: { weddingId: number }) {
         {guestbooks.map((g) => (
           <li
             key={g.id}
-            className="border rounded p-3 flex justify-between items-start"
+            className="relative px-4 py-3 text-left leading-6 bg-white/75 rounded-[8px] mb-[6px] shadow-[1px_1px_2px_rgba(0,0,0,0.1)]"
           >
             <div>
               <p className="font-semibold">{g.name}</p>
@@ -79,9 +77,21 @@ export default function GuestbookList({ weddingId }: { weddingId: number }) {
             </div>
             <button
               onClick={() => handleDelete(g.id)}
-              className="text-red-500 text-sm"
+              className="absolute top-[5px] right-[5px]"
             >
-              삭제
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="12"
+                height="12"
+                viewBox="0 0 12 12"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="0.7"
+                strokeLinecap="round"
+              >
+                <line x1="3" y1="3" x2="9" y2="9" />
+                <line x1="9" y1="3" x2="3" y2="9" />
+              </svg>
             </button>
           </li>
         ))}

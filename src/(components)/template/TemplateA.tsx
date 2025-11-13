@@ -12,6 +12,7 @@ import Calendar from "@/(components)/common/Calendar";
 import WeddingDayCountdown from "@/(components)/common/WeddingCountdown";
 import AccountAccordion from "@/(components)/common/AccountAccordion";
 import GuestbookList from "../common/GuestbookList";
+import { useAuthStore } from "@/(store)/authStore";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -23,6 +24,7 @@ export default function TemplateA({
   data: FormDataType;
 }) {
   const [open, setOpen] = useState(false);
+  const isAdmin = useAuthStore((s) => s.isAdmin);
 
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -112,7 +114,7 @@ export default function TemplateA({
             maxSize={14}
           />
           <Image
-            src="https://newsimg-hams.hankookilbo.com/2022/03/31/065f576b-0ff9-411d-8edb-edc139721de0.jpg"
+            src={data.mainImageUrl}
             alt=""
             quality={80}
             width={720}
@@ -176,36 +178,68 @@ export default function TemplateA({
           />
         </section>
         <section data-reveal>
-          <div className="text-center py-8 mt-8">마음 전하는 곳</div>
-          <AccountAccordion groups={groups} />
-        </section>
-        <section data-reveal>
           <div>
-            <div className="text-center py-8 mt-8">Gallery</div>
+            <div className="text-center my-6">
+              <p className="text-[10px] tracking-[0.25em] text-foreground/50">
+                GALLERY
+              </p>
+              <h2 className="mt-1 text-lg font-semibold">갤러리</h2>
+            </div>
             <div className="flex justify-center items-center flex-wrap gap-8">
               <Gallery galleryItems={galleryItems} />
             </div>
           </div>
         </section>
         <section>
-          <div className="text-center py-8 mt-8">위치</div>
+          <div className="text-center my-6">
+            <p className="text-[10px] tracking-[0.25em] text-foreground/50">
+              LOCATION
+            </p>
+            <h2 className="mt-1 text-lg font-semibold">오시는 길</h2>
+          </div>
           <Kakaomap lat={data.lat} lng={data.lng} />
           <div data-reveal className="p-16">
-            <div className="text-center py-8 mt-8">오시는 길</div>
             <div
               className="whitespace-pre-line"
               dangerouslySetInnerHTML={{
                 __html: data.info.replace(/\n/g, "<br/>"),
               }}
             />
+            <div>지하철</div>
+            <div>버스</div>
+            <div>주차안내</div>
           </div>
         </section>
-        <section>
+        <section data-reveal>
+          <div className="text-center my-6">
+            <p className="text-[10px] tracking-[0.25em] text-foreground/50">
+              ACCOUNT
+            </p>
+            <h2 className="mt-1 text-lg font-semibold">마음 전하실 곳</h2>
+            <p className="mt-3 text-sm text-foreground/70 leading-relaxed whitespace-pre-line">
+              참석이 어려우신 분들을 위해
+              <br />
+              계좌번호를 기재하였습니다.
+              <br />
+              너그러운 마음으로 양해 부탁드립니다.
+            </p>
+          </div>
+          <AccountAccordion groups={groups} />
+        </section>
+        <section data-reveal>
+          <div className="text-center my-6">
+            <p className="text-[10px] tracking-[0.25em] text-foreground/50">
+              GUESTBOOK
+            </p>
+            <h2 className="mt-1 text-lg font-semibold">방명록</h2>
+          </div>
           <GuestbookList weddingId={Number(seq)} />
         </section>
-        <section>
-          <Button>수정</Button>
-        </section>
+        {isAdmin && (
+          <section className="text-center mt-8">
+            <Button>수정</Button>
+          </section>
+        )}
       </div>
     </main>
   );
