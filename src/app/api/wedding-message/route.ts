@@ -1,4 +1,3 @@
-// src/app/api/wedding-message/route.ts
 import { NextResponse } from "next/server";
 
 type ReqBody = {

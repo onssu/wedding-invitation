@@ -1,4 +1,3 @@
-// src/(components)/calendar/StaticKRCalendar.tsx
 type Holiday = { date: string; name: string }; // "YYYY-MM-DD"
 
 // (필요 시 여기에 음력 공휴일 등 추가)

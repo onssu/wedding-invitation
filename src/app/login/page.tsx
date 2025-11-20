@@ -43,7 +43,7 @@ export default function LoginPage() {
         isAdmin: data.user.role === "ADMIN",
         user: data.user,
       });
-      // ✅ 로그인 성공 시 — 서버에서 JWT 쿠키가 자동 저장됨
+      // 로그인 성공 시 — 서버에서 JWT 쿠키가 자동 저장됨
       router.replace("/"); // 메인 페이지로 이동 (또는 `/dashboard`)
     } catch (err: any) {
       setError(err.message);

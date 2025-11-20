@@ -1,4 +1,3 @@
-// src/(components)/gallery/GalleryOverlay.tsx
 "use client";
 
 import Image from "next/image";

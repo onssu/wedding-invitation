@@ -11,7 +11,7 @@ export async function GET(
   req: Request,
   context: { params: Promise<{ id: string }> }
 ) {
-  const { id } = await context.params; // ⬅️ 중요: await 추가
+  const { id } = await context.params; // 중요: await 추가
   const weddingId = Number(id);
 
   const rows = await db
@@ -28,7 +28,7 @@ export async function POST(
   req: Request,
   context: { params: Promise<{ id: string }> }
 ) {
-  const { id } = await context.params; // ⬅️ 동일하게 await 필요
+  const { id } = await context.params; //동일하게 await 필요
   const weddingId = Number(id);
   const { name, message } = await req.json();
 

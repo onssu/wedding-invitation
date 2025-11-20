@@ -7,7 +7,7 @@ import React from "react";
 export default function AppFrame({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
 
-  // ❌ 헤더를 '노출하지 말아야' 하는 경로 목록
+  // 헤더를 노출하지 말아야 하는 경로 목록
   const hiddenHeaderPaths = ["/login", "/signin", "/example", "/view"];
 
   const isHeaderVisible = !hiddenHeaderPaths.some((p) =>

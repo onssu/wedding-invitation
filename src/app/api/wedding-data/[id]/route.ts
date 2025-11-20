@@ -30,7 +30,7 @@ export async function GET(
         { status: 404 }
       );
     }
-    // 🔒 접근 제어: 작성자 본인 또는 관리자만
+    // 접근 제어: 작성자 본인 또는 관리자만
     // if (role !== "ADMIN" && row.userId !== userId) {
     //   return NextResponse.json({ message: "FORBIDDEN" }, { status: 403 });
     // }
@@ -54,7 +54,7 @@ export async function POST(req: Request) {
     const body = await req.json();
     const [row] = await db
       .insert(weddingDatas)
-      .values({ ...body, userId }) // 🔒 소유자 매핑
+      .values({ ...body, userId }) // 소유자 매핑
       .returning();
 
     return NextResponse.json({ ok: true, data: row });
